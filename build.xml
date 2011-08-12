@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="build">
+
+    <property name="srcdir" value="${basedir}/src"/>
+    <property name="bindir" value="${basedir}/bin"/>
+    <property name="docdir" value="${basedir}/doc"/>
+    <property name="testdir" value="${basedir}/test"/>
+
+    <target name="build">
+        <mkdir dir="${bindir}"/>
+        <javac
+            includeantruntime="false"
+            srcdir="${srcdir}"
+            destdir="${bindir}"
+            classpath="bin"
+        />
+    </target>
+
+    <target name="test" depends="build">
+        <mkdir dir="${bindir}"/>
+        <javac
+            includeantruntime="false"
+            srcdir="${testdir}"
+            destdir="${bindir}"
+            classpath="bin"
+        />
+    </target>
+
+    <target name="doc">
+        <mkdir dir="${docdir}"/>
+        <javadoc
+            sourcepath="${srcdir}"
+            destdir="${docdir}"
+            classpath="bin"
+            doctitle="sous API"
+            windowtitle="sous API"
+            access="protected"
+            author="false"
+            version="false"
+        />
+    </target>
+
+    <target name="clean">
+        <delete dir="${bindir}"/>
+        <delete dir="${docdir}"/>
+    </target>
+</project>

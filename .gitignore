@@ -1,0 +1,5 @@
+# Git ignore patterns
+
+# Volatile directories.
+bin
+doc
